@@ -1,0 +1,54 @@
+---
+title: "Data Visualization with ggplot2"
+subtitle: "R-Ladies St. Louis"
+author: "Meenakshi Kushwaha, October 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, rladies, rladies-fonts]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      
+
+---
+
+```{css echo=FALSE}
+# This chunk for sequential highlighting
+# Label class appropriately for slides that need this
+.highlight-last-item > ul > li, 
+.highlight-last-item > ol > li {
+  opacity: 0.5;
+}
+.highlight-last-item > ul > li:last-of-type,
+.highlight-last-item > ol > li:last-of-type {
+  opacity: 1;
+}
+```
+
+```{r, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = F)
+library(flipbookr)
+library(tidyverse)
+```
+---
+
+``` {r lables1, include=FALSE, echo=TRUE}
+ggplot(data=mpg)+ #BREAK
+  aes(x=displ)+ #BREAK
+  aes(y=hwy)+ #BREAK
+  geom_point()+#BREAK
+  theme_minimal()+  #BREAK2
+  labs(x="Displacement")+  #BREAK
+  labs(y="Highway Mileage")+  #BREAK3
+  labs(title="My first GGPLOT")+  #BREAK4
+  labs(subtitle="This is the subtitle")+  #BREAK5
+  labs(caption="Source:mpg dataset")
+```  
+
+`r chunk_reveal("lables1", break_type = "auto", title="##Adding labels to your plot")`
+---
